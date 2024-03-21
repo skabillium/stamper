@@ -16,7 +16,11 @@ func main() {
 
 	flag.Parse()
 
-	kind := strings.ToLower(os.Args[len(os.Args)-1])
+	kind := strings.ToLower(flag.Arg(0))
+	out := flag.Arg(1)
+	if out == "" {
+		out = DefaultLicenseName
+	}
 
 	switch kind {
 	case "list", "ls":
@@ -43,7 +47,7 @@ func main() {
 			strings.NewReplacer()
 		}
 
-		file, err := os.Create(DefaultLicenseName)
+		file, err := os.Create(out)
 		if err != nil {
 			panic(err)
 		}
