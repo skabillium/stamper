@@ -24,10 +24,12 @@ func main() {
 
 	switch kind {
 	case "list", "ls":
-		fmt.Println("List of supported licenses")
+		message := "List of supported licenses: \n"
 		for _, l := range Licenses {
-			fmt.Printf("- %s\n", l.Name)
+			message += fmt.Sprintf("- %s\n", l.Name)
 		}
+
+		fmt.Println(message)
 	default:
 		license, ok := Licenses[kind]
 		if !ok {
