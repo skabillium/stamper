@@ -1,89 +1,76 @@
 package main
 
 type License struct {
-	Name string
-	Aliases []string
+	Name      string
+	Aliases   []string
 	HasParams bool
-	Body string
+	Body      string
 }
 
 var Licenses = map[string]License{
-	"agpl-3.0": {
-		Name: "GNU Affero General Public License v3.0",
-		Aliases: []string{},
+	"agpl3": {
+		Name:      "GNU Affero General Public License v3.0",
 		HasParams: false,
-		Body: Apl3Body,
+		Body:      Apl3Body,
 	},
-	"apache-2.0": {
-		Name: "Apache License 2.0",
-		Aliases: []string{},
+	"apache2": {
+		Name:      "Apache License 2.0",
 		HasParams: false,
-		Body: Apache2Body,
+		Body:      Apache2Body,
 	},
-	"bsd-2-clause": {
-		Name: "BSD 2-Clause \"Simplified\" License",
-		Aliases: []string{},
+	"bsd2": {
+		Name:      "BSD 2-Clause \"Simplified\" License",
 		HasParams: true,
-		Body: Bsd2ClauseBody,
+		Body:      Bsd2ClauseBody,
 	},
-	"bsd-3-clause": {
-		Name: "BSD 3-Clause \"New\" or \"Revised\" License",
-		Aliases: []string{},
+	"bsd3": {
+		Name:      "BSD 3-Clause \"New\" or \"Revised\" License",
 		HasParams: true,
-		Body: Bsd3ClauseBody,
+		Body:      Bsd3ClauseBody,
 	},
-	"bsl-1.0": {
-		Name: "Boost Software License 1.0",
-		Aliases: []string{},
+	"bsl": {
+		Name:      "Boost Software License 1.0",
 		HasParams: false,
-		Body: Bsl1Body,
+		Body:      Bsl1Body,
 	},
-	"cc0-1.0": {
-		Name: "Creative Commons Zero v1.0 Universal",
-		Aliases: []string{},
+	"cc": {
+		Name:      "Creative Commons Zero v1.0 Universal",
 		HasParams: false,
-		Body: Cc01Body,
+		Body:      Cc01Body,
 	},
-	"epl-2.0": {
-		Name: "Eclipse Public License 2.0",
-		Aliases: []string{},
+	"epl2": {
+		Name:      "Eclipse Public License 2.0",
 		HasParams: false,
-		Body: Epl2Body,
+		Body:      Epl2Body,
 	},
-	"gpl-2.0": {
-		Name: "GNU General Public License v2.0",
-		Aliases: []string{},
+	"gpl2": {
+		Name:      "GNU General Public License v2.0",
 		HasParams: false,
-		Body: Gpl2Body,
+		Body:      Gpl2Body,
 	},
-	"gpl-3.0": {
-		Name: "GNU General Public License v3.0",
-		Aliases: []string{},
+	"gpl3": {
+		Name:      "GNU General Public License v3.0",
 		HasParams: false,
-		Body: Gpl3Body,
+		Body:      Gpl3Body,
 	},
-	"lgpl-2.1": {
-		Name: "GNU Lesser General Public License v2.1",
-		Aliases: []string{},
+	"lgpl2": {
+		Name:      "GNU Lesser General Public License v2.1",
 		HasParams: false,
-		Body: Lgpl2Body,
+		Body:      Lgpl2Body,
 	},
 	"mit": {
-		Name: "MIT License",
-		Aliases: []string{},
+		Name:      "MIT License",
 		HasParams: true,
-		Body: MitBody,
+		Body:      MitBody,
 	},
-	"mpl-2.0": {
-		Name: "Mozilla Public License 2.0",
-		Aliases: []string{},
+	"mpl2": {
+		Name:      "Mozilla Public License 2.0",
 		HasParams: false,
-		Body: Mpl2Body,
+		Body:      Mpl2Body,
 	},
 	"unlicense": {
-		Name: "The Unlicense",
-		Aliases: []string{},
+		Name:      "The Unlicense",
 		HasParams: false,
-		Body: UnlicenseBody,
+		Body:      UnlicenseBody,
 	},
 }
