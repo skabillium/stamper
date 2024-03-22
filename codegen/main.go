@@ -152,9 +152,7 @@ func GenerateConstantsFile() {
 			panic("Error for license " + l.Key)
 		}
 
-		formatted := strings.ReplaceAll(string(txt), "\n", "\\n")
-		formatted = strings.ReplaceAll(formatted, "\t", "\\t")
-		formatted = strings.ReplaceAll(formatted, "\"", "\\\"")
+		formatted := strings.NewReplacer("\n", "\\n", "\t", "\\t", "\"", "\\\"").Replace(string(txt))
 
 		bodiesFile.WriteString(fmt.Sprintf("const %s = \"%s\" \n\n", constant, formatted))
 
@@ -164,13 +162,13 @@ func GenerateConstantsFile() {
 			hasParamsStr = "true"
 		}
 
+		key := strings.NewReplacer("-", "", "0", "", "1", "", ".", "", "clause", "").Replace(l.Key)
 		licensesFile.WriteString(fmt.Sprintf(`	"%s": {
 		Name: "%s",
-		Aliases: []string{},
 		HasParams: %s,
 		Body: %s,
 	},
-`, l.Key, strings.ReplaceAll(l.Name, "\"", "\\\""), hasParamsStr, constant))
+`, key, strings.ReplaceAll(l.Name, "\"", "\\\""), hasParamsStr, constant))
 	}
 	licensesFile.WriteString("}\n")
 }
