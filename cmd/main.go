@@ -14,10 +14,19 @@ func formatKey(key string) string {
 	return strings.NewReplacer("-", "", "0", "", "1", "", ".", "", "clause", "").Replace(key)
 }
 
+func ListLicenses() {
+	message := "List of supported licenses and their commands: \n"
+	for k, l := range Licenses {
+		message += fmt.Sprintf("- \"%s\" %s\n", k, l.Name)
+	}
+
+	fmt.Println(message)
+}
+
 func main() {
 	var name string
 	var licenseType string
-	flag.StringVar(&name, "name", "", "Full name to be put in license")
+	flag.StringVar(&name, "name", "", "Full name for license")
 	flag.StringVar(&licenseType, "license", "", "License type to generate")
 	flag.Parse()
 
@@ -25,12 +34,8 @@ func main() {
 	arg := flag.Arg(0)
 	switch strings.ToLower(arg) {
 	case "list", "ls":
-		message := "List of supported licenses: \n"
-		for _, l := range Licenses {
-			message += fmt.Sprintf("- %s\n", l.Name)
-		}
-
-		fmt.Println(message)
+		ListLicenses()
+		return
 	default:
 		out := DefaultLicenseName
 		if arg != "" {
