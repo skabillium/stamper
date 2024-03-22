@@ -7,7 +7,7 @@ Stamper is a CLI tool for generating licenses
 To generate an MIT license for your project run
 
 ```sh
-stamper mit --name ACME
+stamper --license mit --name ACME
 ```
 
 Below is a list with all supported licenses and their corresponding commands:
@@ -26,3 +26,7 @@ Below is a list with all supported licenses and their corresponding commands:
 | MIT License | mit |
 | Mozilla Public License 2.0 | mpl-2.0 |
 | The Unlicense | unlicense |
+
+## Installation
+
+Currently you can only build it from source, run `make build` and use the executable `/bin/stamper`.
