@@ -24,11 +24,26 @@ func ListLicenses() {
 }
 
 func main() {
-	var name string
-	var licenseType string
-	flag.StringVar(&name, "name", "", "Full name for license")
-	flag.StringVar(&licenseType, "license", "", "License type to generate")
+	var nameLong string
+	var nameShort string
+	var licenseTypeLong string
+	var licenseTypeShort string
+
+	flag.StringVar(&nameLong, "name", "", "Full name for license")
+	flag.StringVar(&nameShort, "n", "", "Short alias for name")
+	flag.StringVar(&licenseTypeLong, "license", "", "License type to generate")
+	flag.StringVar(&licenseTypeShort, "l", "", "Short alias for license type")
 	flag.Parse()
+
+	licenseType := licenseTypeLong
+	if licenseType == "" {
+		licenseType = licenseTypeShort
+	}
+
+	name := nameLong
+	if name == "" {
+		name = nameShort
+	}
 
 	// This could be either a command ("list") or a license path ("path/to/license")
 	arg := flag.Arg(0)
